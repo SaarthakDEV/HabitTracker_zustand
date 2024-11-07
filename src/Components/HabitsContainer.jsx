@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import useStore from '../store'
+import { Button, Heading, Input } from '../Styles/style'
 
 const HabitsContainer = () => {
     const [habitText, setHabitText] = useState('')
@@ -17,14 +18,14 @@ const HabitsContainer = () => {
     }
   return (
     <>
-        <h1>
-        {noOfHabits}
-        </h1>
+        <Heading>
+        Total Number of running habits : {noOfHabits}
+        </Heading>
         {
             habits?.map(habit => <p>{habit.title}</p>)
         }
-        <input type="text" value={habitText} onChange={e => setHabitText(e.target.value)}/>
-        <button type='submit' onClick={handleAddHabit}>Add Habit</button>
+        <Input type="text" value={habitText} onChange={e => setHabitText(e.target.value)}/>
+        <Button type='submit' onClick={handleAddHabit}>Add Habit</Button>
     </>
   )
 }
