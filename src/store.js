@@ -10,9 +10,17 @@ const useStore = create((set,get) => ({
         set(state => ({habits: [...state.habits,newHabit]}));
         set(state => ({noOfHabits: state.noOfHabits + 1}))
     },
-    // toggleHabit: (habitId) => {
-    //     const habits = get()
-    // }
+    toggleHabit: (habitId) => {
+        const habits = get().habits;
+        const newHabits = habits.map(habit => {
+            if(habit.id == habitId){
+                habit.completed = !habit.completed
+                habit.color = habit.color === 'red' ? 'green' : 'red'
+            }
+            return habit
+        });
+        set(state => ({ habits: newHabits}))
+    }
 }))
 
 export default useStore;    
