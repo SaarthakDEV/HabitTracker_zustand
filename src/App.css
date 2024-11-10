@@ -2,3 +2,8 @@
 --bgColor: white;
 --textColor: black;
 }
+
+*{
+    color: white;
+    font-size: 1rem;
+}
